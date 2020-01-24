@@ -6,13 +6,12 @@ By the end of this lesson, students will be able to:
 1. Explain what *scope* is
 2. Describe the difference between *global scope* vs *function scope* vs *block scope*
 3. Demonstrate understanding of the difference between *var*, *let*, & *const*
-4. Explain what *hoisting* is
 
 ## What is [Scope](https://developer.mozilla.org/en-US/docs/Glossary/Scope)?
 
-Scope refers to the accessibility of a variable from certain contexts in your code. If a variable or another expression is not in the "current scope", then it means that we cannot use that variable or expression. If we try to use a variable that is not in the current scope, then we will get an error or unexpected/unintended behavior. Not good! We can avoid a lot of debugging headaches if we understand scope!
+Scope refers to the accessibility of a variable from certain locations in your code. If a variable or another expression is not in the "current scope", then it means that we cannot use that variable or expression. If we try to use a variable that is not in the current scope, then we will get an error or unexpected/unintended behavior. Not good! We can avoid a lot of debugging headaches if we understand scope!
 
-We have three different types of scope - global scope, function scope, and block scope. We can compare [scope to levels of government](https://blog.codeanalogies.com/2017/11/22/how-javascript-variable-scoping-is-just-like-multiple-levels-of-government/). There are laws that apply all over the world and laws that apply only to certain locations just like in scope, we have variables that are accessible everywhere and other variable that are only accessible in certain contexts. 
+We have three different types of scope - global scope, function scope, and block scope. We can compare [scope to levels of government](https://blog.codeanalogies.com/2017/11/22/how-javascript-variable-scoping-is-just-like-multiple-levels-of-government/). There are laws that apply all over the world and laws that apply only to certain locations just like in scope, we have variables that are accessible everywhere and other variable that are only accessible in certain functions or blocks. 
 
 For example, we have human rights laws created by the United Nations and those laws apply all over the world (global scope). Then each nation may have its own set of laws. For example, the US legal drinking age is 21 and this law applies only to the US and not to other countries (function scope). Then, we have states and each state may have their own laws. For example, the state of New York does not permit establishments to allow patrons to "B.Y.O.B." if the establishment does not have a license or permit to sell alcoholic beverages. This law applies to NY, but not necessarily to another state or nation.
 
@@ -82,21 +81,34 @@ If a variable has block scope, then it is accessible within its immediate enclos
 - Variables declared with const are constant meaning that they cannot be changed through reassignment and they cannot be redeclared. If you try to change or redeclare a constant variable, then you will get an error.
 - Variables declared with const must also be initialized at the same time.
 
----
+&nbsp;
+&nbsp;
 
+
+
+| Keyword        | Scope           | Can be reassigned?  | Can be redeclared? | Hoisted?
+| :-------------: |:-------------:| :-----:| :------:| :--------:|
+| var      | Function | Yes | Yes | Yes |
+| let      | Block      |   Yes | No | No |
+| const | Block      |    No | No | No |
+___
+---
 ## Let's review
 1. What are some differences between var & let?
 2. What are some differences between let & const?
 3. What are some best practices regarding variable declaration?
 
+
+___
+---
+
+![any questions?](/pics/any-questions.jpg)
+
 ___
 
-* 16 min 48 sec up to here, haven't coded live yet *
 
 
-### Practice
-
-### Test Yourself
+## Test Yourself
 
 1. 
 ```javascript
@@ -274,4 +286,9 @@ num = 5
 </p>
 </details>
 
+
+----
+
 #### Extra Resources
+- [W3 Schools on Scope](https://www.w3schools.com/js/js_scope.asp)
+- [Digital Ocean on variables, scope, & hoisting](https://www.digitalocean.com/community/tutorials/understanding-variables-scope-hoisting-in-javascript)
