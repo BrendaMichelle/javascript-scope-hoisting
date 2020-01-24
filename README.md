@@ -1,4 +1,4 @@
-# JavaScript: Scope & Hoisting
+# JavaScript: Scope
 
 ![alt text](/pics/js-encouragement.jpg "You got this!")
 ### Objective
@@ -121,8 +121,9 @@ doSomething();
 ```
 <details><summary>What will be logged out?</summary>
 <p>
+
 Nothing; We will get a syntax error.
-&nbsp;
+
 <img src="pics/syntax-err.png">
 </p>
 </details>
@@ -142,8 +143,9 @@ doSomething();
 ```
 <details><summary>What will be logged out?</summary>
 <p>
+
 [1, 3]
-&nbsp;
+
 We are not reassigning the const num, so it is perfectly valid to change the contents within the array! It works similarly with const objects.
 </p>
 </details>
@@ -164,8 +166,9 @@ forecastWeather();
 ```
 <details><summary>What will be logged out?</summary>
 <p>
+
 {snow: true, rain: false, sun: true, temperature: 25}
-&nbsp;
+
 Just like the previous example, we are not changing the weather object by reassignment or redeclaration, so this does not throw an error.
 </p>
 </details>
@@ -184,8 +187,9 @@ decreaseTemp();
 ```
 <details><summary>What will be logged out?</summary>
 <p>
+    
 Nothing; This will throw an error.
-&nbsp;
+
 <img src="pics/type-err.png">
 </p>
 </details>
@@ -212,6 +216,7 @@ doMath();
 ```
 <details><summary>What will be returned?</summary>
 <p>
+    
 True
 </p>
 </details>
@@ -237,8 +242,9 @@ doMath();
 ```
 <details><summary>What will be returned?</summary>
 <p>
+    
 x = 10
-&nbsp;
+
 z = 25
 </p>
 </details>
@@ -258,8 +264,9 @@ console.log(`num = ${num}`);
 ```
 <details><summary>What will be logged out?</summary>
 <p>
-outside of doSomething
-&nbsp;
+    
+outside of doSomething    
+
 num = 5
 </p>
 </details>
@@ -281,12 +288,13 @@ console.log(`num = ${num}`);
 ```
 <details><summary>What will be logged out?</summary>
 <p>
+    
 inside of doSomething
-&nbsp;
+
 num = 88
-&nbsp;
+
 outside of doSomething
-&nbsp;
+
 num = 5
 </p>
 </details>
