@@ -20,7 +20,7 @@ For example, we have human rights laws created by the United Nations and those l
 If a variable has global scope, then it is accessible anywhere in your script. If it is not necessary to make a variable global, then we avoid making the variable global because we don't want to *pollute* the global scope. Polluting the global scope is bad practice because it will make it harder for us to debug and our code will be more error prone.
 
 ```javascript
-function adoptAPet () {
+function numOfPets () {
     petCount += 1; /* petCount is accessible here */
     console.log(`I have ${petCount} pets`); /* I have 6 pets */
 }
@@ -55,7 +55,7 @@ console.log(catCount); // "Uncaught ReferenceError: catCount is not defined"
 ```
 
 ##### Block Scope
-If a variable has block scope, then it is accessible within its immediate enclosing parenthesis only. A variable that has block scope has an even more narrow scope than variables with function scope. We will see examples of block scope in the **Let** section!
+If a variable has block scope, then it is accessible within its immediate enclosing parenthesis. A variable that has block scope has an even more narrow scope than variables with function scope. We will see examples of block scope in the **Let** section!
 
 
 ## [Var](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
@@ -64,7 +64,7 @@ If a variable has block scope, then it is accessible within its immediate enclos
 
 - If we try to redeclare a variable using var, the original variable will simply be overwritten.
 
-- Another tidbit to note is that variables declared with var are hoisted, but don't worry about what that means for now. We will get into it in a little.
+- Another tidbit to note is that variables declared with var are hoisted, but don't worry about what that means for now. We will get into it tomorrow.
 
 
 
@@ -74,7 +74,7 @@ If a variable has block scope, then it is accessible within its immediate enclos
 
 - Another feature of let is that if we try to redeclare a variable within the same scope using let, we will get a syntax error.
 
-- Another tidbit to note is that variables declared with let are *not* hoisted, but again, don't worry about what that means for now as we will review that soon.
+- Another tidbit to note is that variables declared with let are *not* hoisted, but again, don't worry about what that means for now as we will review that tomorrow.
 
 ## [Const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 - **Const** was also introduced in ES6 and like let & var, it is also a keyword that we can use to declare a variable.
@@ -82,6 +82,7 @@ If a variable has block scope, then it is accessible within its immediate enclos
 - Variables declared with const are constant meaning that they cannot be changed through reassignment and they cannot be redeclared. If you try to change or redeclare a constant variable, then you will get an error.
 - Variables declared with const must also be initialized at the same time.
 
+---
 
 ## Let's review
 1. What are some differences between var & let?
@@ -90,15 +91,187 @@ If a variable has block scope, then it is accessible within its immediate enclos
 
 ___
 
+* 16 min 48 sec up to here, haven't coded live yet *
 
-## What is [Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)?
-
-
-## Let's review
-1. Which type of variables will be hoisted? (Var? Let? Const?)
 
 ### Practice
 
 ### Test Yourself
+
+1. 
+```javascript
+function doSomething () {
+    var num = 9;
+    let num = 1;
+    console.log(num);
+}
+doSomething();
+```
+<details><summary>What will be logged out?</summary>
+<p>
+Nothing; We will get a syntax error.
+
+<img src="pics/syntax-err.png">
+</p>
+</details>
+
+
+
+
+2. 
+```javascript
+function doSomething () {
+    const num = [];
+    num.push(1);
+    num.push(3);
+    console.log(num);
+}
+doSomething();
+```
+<details><summary>What will be logged out?</summary>
+<p>
+[1, 3]
+
+We are not reassigning the const num, so it is perfectly valid to change the contents within the array! It works similarly with const objects.
+</p>
+</details>
+
+
+
+
+3. 
+```javascript
+function forecastWeather () {
+    const weather = {snow: true};
+    weather.rain = false;
+    weather.sun = true;
+    weather.temperature = 25;
+    console.log(weather);
+}
+forecastWeather();
+```
+<details><summary>What will be logged out?</summary>
+<p>
+{snow: true, rain: false, sun: true, temperature: 25}
+
+Just like the previous example, we are not changing the weather object by reassignment or redeclaration, so this does not throw an error.
+</p>
+</details>
+
+
+
+4. 
+```javascript
+function decreaseTemp () {
+    temperature -= 4;
+    console.log(temperature); 
+}
+
+const temperature = 99;
+decreaseTemp();
+```
+<details><summary>What will be logged out?</summary>
+<p>
+Nothing; This will throw an error.
+
+<img src="pics/type-err.png">
+</p>
+</details>
+
+
+
+
+5. 
+```javascript
+var num = 8;
+function doMath () {
+    num += 3;
+    
+    if (num % 4 == 0) {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+num += 1;
+doMath();
+```
+<details><summary>What will be returned?</summary>
+<p>
+True
+</p>
+</details>
+
+6. 
+```javascript
+
+function doMath () {
+    let x = 10;
+    let y = 20;
+    
+    function add(){
+        let x = 5;
+        return x + y;
+    }
+
+    let z = add();
+    console.log(`x = ${x}`);
+    console.log(`z = ${z}`);
+}
+
+doMath();
+```
+<details><summary>What will be returned?</summary>
+<p>
+x = 10
+z = 25
+</p>
+</details>
+
+
+
+7. 
+```javascript
+function doSomething () {
+    var num = 88;
+    console.log(`inside of doSomething`);
+    console.log(`num = ${num}`);
+}
+var num = 5;
+console.log(`outside of function`);
+console.log(`num = ${num}`);
+```
+<details><summary>What will be logged out?</summary>
+<p>
+outside of doSomething
+num = 5
+</p>
+</details>
+
+
+
+ 
+8. 
+```javascript
+function doSomething () {
+    var num = 88;
+    console.log(`inside of doSomething`);
+    console.log(`num = ${num}`);
+}
+var num = 5;
+doSomething();
+console.log(`outside of function`);
+console.log(`num = ${num}`);
+```
+<details><summary>What will be logged out?</summary>
+<p>
+inside of doSomething
+num = 88
+outside of doSomething
+num = 5
+</p>
+</details>
 
 #### Extra Resources
