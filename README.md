@@ -69,7 +69,7 @@ If a variable has block scope, then it is accessible within its immediate enclos
 
 ## [Let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) 
 - **Let** was introduced in ES6. It is a keyword that we can use to declare a variable. 
-- Variables declared with let are blocked scope meaning that they are accessible within the block in which they are defined and in any contained sub-blocks. You can think of a block being the area within a set of parenthesis. However, note that if you declare a variable outside of any function using let, then that variable will have global scope. 
+- Variables declared with let are blocked scope meaning that they are accessible within the block in which they are defined and in any contained sub-blocks. You can think of a block being the area within a set of curly braces. However, note that if you declare a variable outside of any function using let, then that variable will have global scope. 
 
 - Another feature of let is that if we try to redeclare a variable within the same scope using let, we will get a syntax error.
 
